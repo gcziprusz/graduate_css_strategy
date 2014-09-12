@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Graduate Your Stylesheet Strategy - @gcziprusz</title>
+		<link rel="icon" type="image/png" href="favicon.ico">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<style>
+			.intro body {
+				background:url("img/bd_graduate.jpg");
+				background-position:center;
+				background-size: cover;
+			}
+			.intro section h1{
+				color: #000;
+				text-shadow:none;
+				font-size: 80px;
+				margin-top: 80px;
+				font-weight: bold;
+			}
+			.intro p small{
+				color: #000;
+				font-size: 40px;
+			}
+			.intro p small a:not(.image){
+				color: #000;
+			}
+		</style>
+		<link rel="stylesheet" href="css/theme/sky.css" id="sky">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-state="intro">
+					<h1>Graduate Your Stylesheet Strategy</h1>
+					<p>
+						<small><a href="http://gabrielcziprusz.com">Gabriel Cziprusz</a> | <a href="http://twitter.com/gcziprusz">@gcziprusz</a></small>
+					</p>
+				</section>
+				<section data-background="#d1ebff">
+					<h2>Agenda</h2>
+					<ol>
+						<li>Why do we have a stylesheet strategy</li>
+						<li>Preprocessing</li>
+						<li>Postprocessing</li>
+						<li>Normalize</li>
+						<li>CSS Specificity</li>
+						<li>BEM</li>
+						<li>Selector performance</li>
+						<li>Refactoring</li>
+						<li>Documentation</li>
+						<li>Style Guide Rizzo</li>
+						<li>The shiny new stuff</li>
+					</ol>
+				</section>
+
+				<section data-background="#d1ebff">
+					<h2>Why do we have a stylesheet strategy</h2>
+					<ul>
+						<li class="fragment">Keeps things simple and DRY.</li>
+
+						<li class="fragment">Reuse as much code as possible.</li>
+						<li class="fragment">It allows us to change direction.</li>
+						<pre class="fragment"><code>
+%rounded-corners
+  border-radius: 4px
+
+.box
+  @extend %rounded-corners
+						</code></pre>
+            <li class="fragment">Keeps file sizes small and css performant.</li>
+					</ul>
+          <aside class="notes">
+            SIMPLE
+              - sounds self explanatory but this is a very imporant goal for us
+              - application complexity goes UP
+              - css is low barrier of entry, easy to understand and get started with
+              - hard to maintain no constructs , loops, conditional, variables
+              - can be the most fragile piece of your system,
+              - test automation is hard
+            REUSE
+             - ad-hoc style development
+              - we dont want the code to keep growing
+              - think about it our sites all pages should have a coherent look
+              - solid reausable css should allow us to just build a new page without
+              adding new styles
+              - we want a small managable source code
+              - css doesnt minify well
+            PIVOT
+              - things are centralized
+              - organized
+              - grids are consistent
+              - headings
+              - colors
+              - buttons
+            PERFORMANCE
+              - first 2 points above help us keep file size small
+              - its importnat to try to keep fileizes small
+              - we have a bundles and we minify but CSS doesnt minify as well well as JS
+            </aside>
+				</section>
+
+				<section data-background="#d1ebff">
+					<h2>Preprocessing</h2>
+          <ul>
+          <li class="fragment">What is it?</li>
+				  <li class="fragment">CSS is hard to DRY</li>
+          <li class="fragment">CSS has no variables, class constructs,  conditionals or loops </li>
+					<li class="fragment">Preporcessor help fill the gap while css standards catch up</li>
+          <li class="fragment">The most common ones are LESS and SASS</li>
+          <li class="fragment">SASS has two distinct syntaxes</li>
+          </ul>
+          <pre class="fragment"><code>
+.SCSS
+$primary-color: #333;
+
+body { color: $primary-color; }
+
+.SASS
+primary-color: #333
+body
+  color: $primary-color
+           </code></pre>
+
+           </section>
+
+           <section>
+           <h2>Preprocessing</h2>
+            <ul>
+              <li class="fragment">.SCSS is the newer syntax </li>
+              <li class="fragment">.SASS will never be deprecated</li>
+              <li class="fragment">At Lonely Planet we use .SASS</li>
+              <li class="fragment">Combined with HAML</li>
+              <li class="fragment">The main benefit is maintainability</li>
+            </ul>
+            <pre class="fragment"><code>
+@mixin respond-to($screen-width)
+  @if $screen-width == narrow-view
+    $breakpoint: 360
+  @media only screen and (min-width : #{$breakpoint}px)
+    @content
+
+.nav
+  width: 100%
+  +respond-to(narrow-view)
+    width: 50px
+    float: left
+           </code></pre>
+            <aside class="notes">
+              .SASS
+                - no bracket little bit more succinct syntax
+                - .SCSS is an easier transition for developer
+                - .CSS is valid .SCSS
+            </aside>
+				</section>
+
+				<section data-background="#d1ebff">
+					<h2>Postprocessing</h2>
+          <ul>
+            <li class="fragment">What is it and what does it solve?</li>
+            <li class="fragment">Autoprefixer</li>
+            <li class="fragment">Alternatives: mixins, js solutions <a href="http://leaverou.github.io/prefixfree/">prefixfree</a></li>
+             <li class="fragment">Why lonely Planet we choose to use Autoprefixer</li>
+          </ul>
+					<pre class="fragment"><code data-trim style="font-size: 18px; margin-top: 20px;">
+						.box{
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 	5px;
+  -webkit-box-shadow: 7px 7px 5px 0px #CCCCCC;
+  -moz-box-shadow: 7px 7px 5px 0px #CCCCCC;
+  box-shadow: 7px 7px 5px 0px #CCCCCC;
+}
+					</code></pre>
+					<pre class="fragment"><code data-trim style="font-size: 18px; margin-top: 20px;">
+						.box
+  border-radius: 5px
+  box-shadow: 7px 7px 5px 0px $body_grey
+
+					</code></pre>
+          <pre class="fragment"><code>@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+.box { @include border-radius(10px); }</code></pre>
+        <aside class="notes">
+        WHAT IS IT
+         - new CSS3 features are only available using vendor prefixes while the specification that hasn’t been finalized.
+         - This can create a lot of clutter in our stylesheets:
+        </aside>
+				</section>
+
+				<section data-background="#d1ebff">
+					<h2>Normalize</h2>
+					<blockquote>If you create an html page with no inline, internal/embedded or external styles is there CSS that applies to your page?
+					</blockquote>
+					<p class="fragment">Every browser has a default "system" stylesheet.</p>
+					<p class="fragment">In some cases this styling isn't consistent across browsers. IE may add more padding it its default list style. So as a developer you didnt event write a single line of CSS and you alredy have potential browser inconsistencies. normalize.css provides a cross browser consistent baseline styling for all elements. Its promise is that you will have to write less browser specific hack code to make things look consistent.</p>
+				</section>
+				<section data-background="#d1ebff">
+					<h2>CSS Specificity</h2>
+					<p>Id like to take a minute to discuss an important concept in CSS that can affect how maintainable your CSS is.</p>
+					<p>CSS Specificity is one of the bacis concepts in CSS and we can use it to our advantage and create styles that have the exact amount of specificity we need.</p>
+					<p>The reason we want our styles to be of the right specificity value is because not specific enought styles can match unwanted elements.</p>
+					<code><pre>div {
+	width: 200px;
+	height: 100px;
+}
+					</code></pre>
+					<p>Styles that are too specific are hard to override.</p>
+					<code><pre>html body ul li a span#primary {
+	font-weight: bold;
+}
+					</code></pre>
+					<p>Styles that are too specific are hard to override and can strat a specificity "war".</p>
+				</section>
+
+				<section data-background="#d1ebff">
+					<h2>BEM</h2>
+					<p>BEM stands for Block Element Modifier. It is a naming convention we adopted at lonely planet. Expressed in code it would like:</p>
+					<code><pre>.site-nav {} /* Block */
+.site-nav__field {} /* Element */
+.site-nav--full {} /* Modifier */</code></pre>
+					<p>These are some of the benefits BEM has brought:</p>
+						<p>Styles are easy to override.</p>
+						<p>It lets us easily distinguishing between different conceptual pieces. </p>
+						<p>We are willing to deal with how "ugly" is look because it makes our css more semantic,readable, coherent.</p>
+				</section>
+
+	<section data-background="#d1ebff">
+					<h2>Selector performance</h2>
+					<p>CSS Performance best practices should be something a good web craftsman considers while creating styles. It's definitelly easier to write performant css then trying to troubleshoot and refactor underperforming css later.</p>
+					<p> My suggestion is to keep the general best practices in mind, following the BEM methodology is a good start. In normal cases the overall difference between best and worse case scenarios is fairly small, but there are special pages that you want to pay attention to this from the start. Github for example had a big css performance problem on their file diff pages and posted a great video about their refactoring efforts http://vimeo.com/54990931 </p>
+					<p>Let's look at some example of css suboptimal css styles and how they can be re-written.</p>
+				</section>
+
+
+				<section data-background="#d1ebff">
+					<h2>Style Guide/Documentation</h2>
+
+						<p>Developing a style guide is a great way to put large portion of your strategy into a tangible usable form.
+					It's benefits are emmans, it helps with consistent look and feel, aggregates your stylesheet documentation and metrics. Provide helpers and components to common styling problems. It's a great tool for developers designers and third parties.</p>
+
+					<p>At lonely planet our very smart colleagues in london started an open source project commonly referenced as Rizzo
+					http://rizzo.lonelyplanet.com </p>
+
+					<p>And they soon knew they hit the jackpot when their team started to get overwhelmed with requests for additions fixes ideas , etc... because this meant that people were interested in using it and wanted more, now we threat it just like any of our other applications and all team members , mostly front end developers and designers are constantly updating it.</p>
+
+					<p>We define our page grids,colors and Typography Icons, utility classes like is-hidden, accessible, clearfix, centering, alerts , form elements, larger components like image slider, loaders,  autocomplete and swipe support.</p>
+				</section>
+				<section data-background="#d1ebff">
+					<h2>The shiny new stuff</h2>
+					<p>So SASS preprocessing and postprocessing and comming up with conventions to make our styles more modular do the job but wouldnt it be nice if these things were built into the language so we didnt have to choose a non standard tool to get the job done?</p>
+
+					</section>
+				<section data-background="#d1ebff">
+					<h2>QUESTIONS ?</h2>
+					<p>
+						<a href="http://twitter.com/gcziprusz">@gcziprusz</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+						<a href="mailto:gabe.cziprusz@lonelyplanet.com">gabe.cziprusz@lonelyplanet.com</a>
+					</p>
+				</section>
+			</div>
+		</div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+	</body>
+</html>
