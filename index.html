@@ -61,10 +61,7 @@
 						<li>Cascade and Specificity</li>
 						<li>CSS methodology</li>
 						<li>CSS performance</li>
-						<li>Refactoring</li>
-						<li>Documentation</li>
-						<li>Style Guide Rizzo</li>
-						<li>The shiny new stuff</li>
+						<li>Documentation / Style Guide Rizzo</li>
 					</ol>
 				</section>
 
@@ -304,13 +301,16 @@ body
       	<section data-background="#d1ebff">
 					<h2>CSS performance</h2>
           <ul>
-            <li class="fragment">download speed  + Selector performance and reflows</li>
+            <li class="fragment">download speed, selector performance and reflows</li>
+            <li class="fragment">We minimize css and create 2 css bundles core and app</li>
+            <li class="fragment">Core.css is cached across lp.com includes: fonts, grids and header/footer styles</li>
+            <li class="fragment">Our performance monitoring section helps us keep stats about stylesheets <a href="http://rizzo.lonelyplanet.com/performance/css-analysis">css analysis</a></li>
             <li class="fragment">CSS styles are start parsed from right to left</li>
           </ul>
 <pre class="fragment"><code>.row div{ border: 1px solid red;}</code></pre>
           <ul>
-            <li class="fragment">In "normal" cases leave efficient parsing to the engine</li>
-            <li class="fragment">There are specialized cases for ex. <a href="http://vimeo.com/54990931">github's</a>file diff pages</li>
+            <li class="fragment">Leave efficient parsing to the engine</li>
+            <li class="fragment">Edge cases <a href="http://vimeo.com/54990931">github's</a>file diff pages</li>
             <li class="fragment">minimize reflows by reducing DOM depth,less css rules, animations on fixed or absolute positioned elements
             </li>
           </ul>
@@ -324,26 +324,41 @@ body
           </aside>
 				</section>
 
-
 				<section data-background="#d1ebff">
-					<h2>Style Guide/Documentation</h2>
-
-						<p>Developing a style guide is a great way to put large portion of your strategy into a tangible usable form.
-					It's benefits are emmans, it helps with consistent look and feel, aggregates your stylesheet documentation and metrics. Provide helpers and components to common styling problems. It's a great tool for developers designers and third parties.</p>
-
-					<p>At lonely planet our very smart colleagues in london started an open source project commonly referenced as Rizzo
-					http://rizzo.lonelyplanet.com </p>
-
-					<p>And they soon knew they hit the jackpot when their team started to get overwhelmed with requests for additions fixes ideas , etc... because this meant that people were interested in using it and wanted more, now we threat it just like any of our other applications and all team members , mostly front end developers and designers are constantly updating it.</p>
-
-					<p>We define our page grids,colors and Typography Icons, utility classes like is-hidden, accessible, clearfix, centering, alerts , form elements, larger components like image slider, loaders,  autocomplete and swipe support.</p>
+					<h2>Documentation / Style Guide Rizzo</h2>
+           <ul>
+              <li>We believe in self documenting code and make documentation integral part of the codebase</li>
+              <li>[doc]..[/doc] blocks that render sections of our styleguide</li>
+            </ul>
 				</section>
-				<section data-background="#d1ebff">
-					<h2>The shiny new stuff</h2>
-					<p>So SASS preprocessing and postprocessing and comming up with conventions to make our styles more modular do the job but wouldnt it be nice if these things were built into the language so we didnt have to choose a non standard tool to get the job done?</p>
 
-					</section>
-				<section data-background="#d1ebff">
+        <section data-background="#d1ebff">
+          <h2>Documentation / Style Guide Rizzo</h2>
+            <pre><code>// [doc] Vertically center content.
+// Use this class on the container and __inner on the element to be centered.
+// [/doc]
+.vertically-centered</code></pre>
+            <img src="img/centered.png" style="width:800px"/>
+        </section>
+
+        <section data-background="#d1ebff">
+          <h2>Documentation / Style Guide Rizzo</h2>
+           <ul>
+              <li>Our open source Styleguide rizzo.lonelyplanet.com is our strategy materialized</li>
+              <li>It was created by @ianfeather and his team in London</li>
+              <li>Provides consistent UI look and feel</li>
+              <li>Aggregates our docs, methodology and metrics</li>
+              <li>Great tool for our designers and third parties</li>
+              <li>Reuse grid, utility classes, helpers</li>
+              <li>It's unique and successfule because it's a live representation of our front end</li>
+            </ul>
+            <aside class="notes">
+              hit the jackpot when their team started to get
+overwhelmed with requests for additions fixes ideas
+            </aside>
+        </section>
+
+        <section data-background="#d1ebff">
 					<h2>QUESTIONS ?</h2>
 					<p>
 						<a href="http://twitter.com/gcziprusz">@gcziprusz</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -355,21 +370,21 @@ body
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
 		<script>
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
+		Reveal.initialize({
+  controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
 			});
 		</script>
 	</body>
