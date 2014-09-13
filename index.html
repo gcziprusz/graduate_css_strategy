@@ -29,14 +29,14 @@
 		</style>
 		<link rel="stylesheet" href="css/theme/sky.css" id="sky">
 		<link rel="stylesheet" href="lib/css/zenburn.css">
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
+	<script>
+	if ( window.location.search.match( /print-pdf/gi ) ) {
+	  var link = document.createElement( "link" );
+		link.rel = "stylesheet";
+		link.type = "text/css";
+		link.href = "css/print/pdf.css";
+		document.getElementsByTagName( 'head' )[0].appendChild( link );
+	}
 		</script>
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
@@ -57,10 +57,10 @@
 						<li>Why do we have a stylesheet strategy</li>
 						<li>Preprocessing</li>
 						<li>Postprocessing</li>
-						<li>Normalize</li>
-						<li>CSS Specificity</li>
-						<li>BEM</li>
-						<li>Selector performance</li>
+						<li>Leveling the playing field</li>
+						<li>Cascade and Specificity</li>
+						<li>CSS methodology</li>
+						<li>CSS performance</li>
 						<li>Refactoring</li>
 						<li>Documentation</li>
 						<li>Style Guide Rizzo</li>
@@ -75,13 +75,11 @@
 
 						<li class="fragment">Reuse as much code as possible.</li>
 						<li class="fragment">It allows us to change direction.</li>
-						<pre class="fragment"><code>
-%rounded-corners
+						<pre class="fragment"><code>%rounded-corners
   border-radius: 4px
 
 .box
-  @extend %rounded-corners
-						</code></pre>
+  @extend %rounded-corners</code></pre>
             <li class="fragment">Keeps file sizes small and css performant.</li>
 					</ul>
           <aside class="notes">
@@ -124,8 +122,7 @@
           <li class="fragment">The most common ones are LESS and SASS</li>
           <li class="fragment">SASS has two distinct syntaxes</li>
           </ul>
-          <pre class="fragment"><code>
-.SCSS
+          <pre class="fragment"><code>.SCSS
 $primary-color: #333;
 
 body { color: $primary-color; }
@@ -133,12 +130,11 @@ body { color: $primary-color; }
 .SASS
 primary-color: #333
 body
-  color: $primary-color
-           </code></pre>
+  color: $primary-color</code></pre>
 
            </section>
 
-           <section>
+           <section data-background="#d1ebff">
            <h2>Preprocessing</h2>
             <ul>
               <li class="fragment">.SCSS is the newer syntax </li>
@@ -147,8 +143,7 @@ body
               <li class="fragment">Combined with HAML</li>
               <li class="fragment">The main benefit is maintainability</li>
             </ul>
-            <pre class="fragment"><code>
-@mixin respond-to($screen-width)
+            <pre class="fragment"><code>@mixin respond-to($screen-width)
   @if $screen-width == narrow-view
     $breakpoint: 360
   @media only screen and (min-width : #{$breakpoint}px)
@@ -158,8 +153,7 @@ body
   width: 100%
   +respond-to(narrow-view)
     width: 50px
-    float: left
-           </code></pre>
+    float: left</code></pre>
             <aside class="notes">
               .SASS
                 - no bracket little bit more succinct syntax
@@ -181,24 +175,20 @@ body
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 	5px;
-  -webkit-box-shadow: 7px 7px 5px 0px #CCCCCC;
-  -moz-box-shadow: 7px 7px 5px 0px #CCCCCC;
-  box-shadow: 7px 7px 5px 0px #CCCCCC;
 }
 					</code></pre>
-					<pre class="fragment"><code data-trim style="font-size: 18px; margin-top: 20px;">
-						.box
-  border-radius: 5px
-  box-shadow: 7px 7px 5px 0px $body_grey
 
-					</code></pre>
           <pre class="fragment"><code>@mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
-  -ms-border-radius: $radius;
   border-radius: $radius;
 }
 .box { @include border-radius(10px); }</code></pre>
+<pre class="fragment"><code data-trim style="font-size: 18px; margin-top: 20px;">
+            .box
+  border-radius: 5px
+
+          </code></pre>
         <aside class="notes">
         WHAT IS IT
          - new CSS3 features are only available using vendor prefixes while the specification that hasn’t been finalized.
@@ -207,47 +197,131 @@ body
 				</section>
 
 				<section data-background="#d1ebff">
-					<h2>Normalize</h2>
-					<blockquote>If you create an html page with no inline, internal/embedded or external styles is there CSS that applies to your page?
-					</blockquote>
-					<p class="fragment">Every browser has a default "system" stylesheet.</p>
-					<p class="fragment">In some cases this styling isn't consistent across browsers. IE may add more padding it its default list style. So as a developer you didnt event write a single line of CSS and you alredy have potential browser inconsistencies. normalize.css provides a cross browser consistent baseline styling for all elements. Its promise is that you will have to write less browser specific hack code to make things look consistent.</p>
-				</section>
-				<section data-background="#d1ebff">
-					<h2>CSS Specificity</h2>
-					<p>Id like to take a minute to discuss an important concept in CSS that can affect how maintainable your CSS is.</p>
-					<p>CSS Specificity is one of the bacis concepts in CSS and we can use it to our advantage and create styles that have the exact amount of specificity we need.</p>
-					<p>The reason we want our styles to be of the right specificity value is because not specific enought styles can match unwanted elements.</p>
-					<code><pre>div {
-	width: 200px;
-	height: 100px;
-}
-					</code></pre>
-					<p>Styles that are too specific are hard to override.</p>
-					<code><pre>html body ul li a span#primary {
-	font-weight: bold;
-}
-					</code></pre>
-					<p>Styles that are too specific are hard to override and can strat a specificity "war".</p>
-				</section>
+					<h2>Leveling the playing field</h2>
+          <ul>
+            <li class="fragment">Lonely Planet is built using the principles of progressive enhancement.</li>
+            <li class="fragment">What browsers does Lonely Planet support?</li>
+            <li class="fragment">We group browsers based on QuerySelector,Local Storage,ClassList,AddEventListener</li>
+            <li class="fragment">Browsers that do not meet the criteria above only get analytics javascript, svg icons, CSS3 effects or fonts (IE8 is an exception)</li>
+
+
+				 <aside class="notes">
+          DEFAULT "SYSTEM" CSS
+          - consulted when no user or author stylesheet
+          - lonely planet normalize.css
+        </aside>
+        </section>
+        <section data-background="#d1ebff">
+        <h2>Leveling the playing field</h2>
+        <ul>
+           <li class="fragment">Knowing what we support is a good step towards leveling the playing field</li>
+            <li class="fragment">Every browser has a default "system" stylesheet.</li>
+            <li class="fragment">"system" styles aren't consistent across browsers</li>
+            <li class="fragment">Before we wrote a single line of CSS our pages are not consistent across browsers</li>
+            <li class="fragment">reset.css</li>
+            <li class="fragment">normalize.css</li>
+            <li class="fragment">lonelyplanet.com uses <a href="https://github.com/necolas/normalize.css">normalize.css by @necolas</a> (stripped down version to support IE8 +)</li>
+          </ul>
+        </section>
 
 				<section data-background="#d1ebff">
-					<h2>BEM</h2>
-					<p>BEM stands for Block Element Modifier. It is a naming convention we adopted at lonely planet. Expressed in code it would like:</p>
-					<code><pre>.site-nav {} /* Block */
+					<h2>Cascade and Specificity</h2>
+          <ul>
+            <li class="fragment">Basic CSS concepts, yet often overlooked (IMO)</li>
+            <li class="fragment">Root cause of CSS quality issues</li>
+            </ul>
+          <pre class="fragment"><code>div{
+  display: block;
+}</code></pre>
+          <pre class="fragment"><code data-trim style="font-size: 18px; margin-top: 20px;">html body ul li a span#primary {
+  font-weight: bold;
+}</code></pre>
+          <ul>
+					<li class="fragment">CASCADE: Uses selector pattern matching to apply to elements style declarations that have cascaded from various sources</li>
+          <li class="fragment">When more declarations apply to an element, importance, origin, specificity, and the source order determines which style to apply</li>
+        </ul>
+          <aside class="notes">
+            SEPCIFICITY
+             - specificity "war"
+             - slippery slope
+            CASCADE
+             - only style whats different
+             -
+          </aside>
+				</section>
+
+        <section data-background="#d1ebff">
+          <h2>Cascade and Specificity</h2>
+          <ul>
+          <li  class="fragment">SPECIFICITY: if importance and origin is the most specific selector will take precedence.</li>
+          </ul>
+          <table class="fragment">
+          <thread>
+            <tr><th>Least specific to most specific</th></tr>
+          </thread>
+          <tbody>
+          <tr><td>Universal selectors</td></tr>
+         <tr><td>Type selectors</td></tr>
+         <tr><td>Class selectors</td></tr>
+         <tr><td>Attributes selectors</td></tr>
+         <tr><td>Pseudo-classes</td></tr>
+         <tr><td>ID selectors</td></tr>
+         <tr><td>Inline style</td></tr></tbody>
+          </table>
+        </section>
+
+				<section data-background="#d1ebff">
+					<h2>CSS methodology</h2>
+          <ul>
+          <li class="fragment">A methodology tells us how to do stuff</li>
+          <li class="fragment">2+1 most common css methodologies are OOCSS, BEM and SMACSS</li>
+          <li class="fragment">Each trying to achieve maintainable, reusable CSS in different ways</li>
+          <li class="fragment">OOCSS is DRYing CSS using Object oriented design</li>
+          <li class="fragment">BEM or block element modifier is a naming convention</li>
+          </ul>
+          <pre class="fragment"><code>.site-nav {} /* Block */
 .site-nav__field {} /* Element */
-.site-nav--full {} /* Modifier */</code></pre>
-					<p>These are some of the benefits BEM has brought:</p>
-						<p>Styles are easy to override.</p>
-						<p>It lets us easily distinguishing between different conceptual pieces. </p>
-						<p>We are willing to deal with how "ugly" is look because it makes our css more semantic,readable, coherent.</p>
-				</section>
+.site-nav__field--full {} /* Modifier */</code></pre>
+          <aside class="notes">
+            OOCSS
+              Nicole Sullivan  ~2009
 
-	<section data-background="#d1ebff">
-					<h2>Selector performance</h2>
-					<p>CSS Performance best practices should be something a good web craftsman considers while creating styles. It's definitelly easier to write performant css then trying to troubleshoot and refactor underperforming css later.</p>
-					<p> My suggestion is to keep the general best practices in mind, following the BEM methodology is a good start. In normal cases the overall difference between best and worse case scenarios is fairly small, but there are special pages that you want to pay attention to this from the start. Github for example had a big css performance problem on their file diff pages and posted a great video about their refactoring efforts http://vimeo.com/54990931 </p>
-					<p>Let's look at some example of css suboptimal css styles and how they can be re-written.</p>
+              Each have drawbacks
+            BEM
+						 + semantics
+             - wordy classnames
+             - styles are easy to override
+				  </aside>
+        </section>
+
+        <section data-background="#d1ebff">
+        <h2>CSS methodology</h2>
+          <ul>
+           <li class="fragment">SMACSS +1 most influential aspect is its organizational system</li>
+          <li class="fragment">At Lonely Planet we use ideas from SMACSS to organize our source files loosely follow OOCSS using BEM naming conventions</li>
+          </ul>
+        </section>
+      	<section data-background="#d1ebff">
+					<h2>CSS performance</h2>
+          <ul>
+            <li class="fragment">download speed  + Selector performance and reflows</li>
+            <li class="fragment">CSS styles are start parsed from right to left</li>
+          </ul>
+<pre class="fragment"><code>.row div{ border: 1px solid red;}</code></pre>
+          <ul>
+            <li class="fragment">In "normal" cases leave efficient parsing to the engine</li>
+            <li class="fragment">There are specialized cases for ex. <a href="http://vimeo.com/54990931">github's</a>file diff pages</li>
+            <li class="fragment">minimize reflows by reducing DOM depth,less css rules, animations on fixed or absolute positioned elements
+            </li>
+          </ul>
+					<aside class="notes">
+            Lonely Planet we minimize CSS and load 2 files core cached for all of lp.com and section specific
+            caching and file size
+            PERFORMANCE
+            Beneficial to know general rules
+            rightmost is the key selector
+             http://vimeo.com/54990931
+          </aside>
 				</section>
 
 
