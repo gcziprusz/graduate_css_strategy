@@ -7,6 +7,28 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<style>
+      .pre body{
+         background:url("img/pre.jpg")no-repeat top center fixed;
+        background-size: contain;
+      }
+      .pre section{
+         background:rgba(0,0,0,0.8);
+        color:#fff;
+      }
+      .pre section h2{
+        color:#fff;
+      }
+      .rizzo body{
+        background:url("img/rizzo.jpg");
+        background-position:top left;
+      }
+      .rizzo section{
+         background:rgba(0,0,0,0.8);
+        color:#fff;
+      }
+      .rizzo section h2{
+        color:#fff;
+      }
 			.intro body {
 				background:url("img/bd_graduate.jpg");
 				background-position:center;
@@ -26,13 +48,49 @@
         background-size: cover;
         color: #fff;
       }
+      .bem body{
+        background:url("img/bem.jpg") no-repeat top center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        color: #fff;
+      }
+
+      .performance body{
+        background:#C10D07;
+      }
+      .performance section img{
+        position: absolute;
+        top:0;
+        left:-622px;
+      }
+      .performance .slides>section{
+        left:-20%;
+        width:80%;
+      }
+      .performance section h2 ,.performance section ul li{
+        color:#C1C7A9;
+      }
+      .performance section a:not(.image){
+        color:#C1C7A9;
+        text-decoration: underline;
+      }
        .levelit body{
         background:url("img/browsers.png");
         background-position:top left;
         background-size: cover;
         color: #fff;
       }
+       .levelit section h2{
+        color:#fff;
+       }
       .levelit section{
+         background:rgba(0,0,0,0.8);
+        color:#fff;
+      }
+
+      .bem section{
         background:rgba(255,255,255,0.95);
       }
 
@@ -146,14 +204,14 @@
             </aside>
 				</section>
 
-				<section data-background="#d1ebff">
+				<section data-state="pre">
 					<h2>Preprocessing</h2>
           <ul>
           <li>What is it?</li>
 				  <li>CSS is hard to DRY</li>
           <li>CSS has no variables, class constructs,  conditionals or loops </li>
 					<li>Preporcessor help fill the gap while css standards catch up</li>
-          <li>The most common ones are LESS and SASS</li>
+          <li>The most common ones are LESS, Stylus and SASS</li>
           <li>SASS has two distinct syntaxes</li>
           </ul>
           <pre><code>.SCSS
@@ -168,7 +226,7 @@ body
 
            </section>
 
-           <section data-background="#d1ebff">
+           <section data-state="pre">
            <h2>Preprocessing</h2>
             <ul>
               <li>.SCSS is the newer syntax </li>
@@ -302,7 +360,7 @@ body
           </table>
         </section>
 
-				<section data-background="#d1ebff">
+				<section data-state="bem">
 					<h2>Methodology</h2>
           <ul>
           <li>A methodology tells us how to do stuff</li>
@@ -326,15 +384,16 @@ body
 				  </aside>
         </section>
 
-        <section data-background="#d1ebff">
+        <section data-state="bem">
         <h2>Methodology</h2>
           <ul>
            <li>SMACSS +1 most influential aspect is its organizational system</li>
           <li>At Lonely Planet we use ideas from SMACSS to organize our source files loosely follow OOCSS using BEM naming conventions</li>
           </ul>
         </section>
-      	<section data-background="#d1ebff">
-					<h2>Performance</h2>
+      	<section data-state="performance">
+        <img src="img/performance.png"/>
+          <h2>Performance</h2>
           <ul>
             <li>download speed, selector performance and reflows</li>
             <li>We minimize css and create 2 css bundles core and app</li>
@@ -359,7 +418,7 @@ body
           </aside>
 				</section>
 
-				<section data-background="#d1ebff">
+				<section data-state="rizzo">
 					<h2>Documentation / Style Guide Rizzo</h2>
            <ul>
               <li>We believe in self documenting code and make documentation integral part of the codebase</li>
@@ -367,7 +426,7 @@ body
             </ul>
 				</section>
 
-        <section data-background="#d1ebff">
+        <section data-state="rizzo">
           <h2>Documentation / Style Guide Rizzo</h2>
             <pre><code>// [doc] Vertically center content.
 // Use this class on the container and __inner on the element to be centered.
@@ -376,7 +435,7 @@ body
             <img src="img/centered.png" style="width:800px"/>
         </section>
 
-        <section data-background="#d1ebff">
+        <section data-state="rizzo">
           <h2>Documentation / Style Guide Rizzo</h2>
            <ul>
               <li>Our open source Styleguide rizzo.lonelyplanet.com is our strategy materialized</li>
