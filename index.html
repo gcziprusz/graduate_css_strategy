@@ -12,6 +12,39 @@
 				background-position:center;
 				background-size: cover;
 			}
+      .checklist body{
+        background:url("img/checklist.jpg");
+        background-position:center;
+        background-size: cover;
+        color: #fff;
+      }
+      .questions body{
+        background:url("img/questions.png") no-repeat top center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        color: #fff;
+      }
+       .levelit body{
+        background:url("img/browsers.png");
+        background-position:top left;
+        background-size: cover;
+        color: #fff;
+      }
+      .levelit section{
+        background:rgba(255,255,255,0.95);
+      }
+
+      .checklist ol,.checklist .reveal h2{
+        color:#fff;
+        margin-left: 75px;
+        list-style-position: inside;
+      }
+      section ul{
+        padding-left:60px;
+      }
+
 			.intro section h1{
 				color: #000;
 				text-shadow:none;
@@ -51,7 +84,7 @@
 						<small><a href="http://gabrielcziprusz.com">Gabriel Cziprusz</a> | <a href="http://twitter.com/gcziprusz">@gcziprusz</a></small>
 					</p>
 				</section>
-				<section data-background="#d1ebff">
+				<section data-state="checklist">
 					<h2>Agenda</h2>
 					<ol>
 						<li>Why do we have a stylesheet strategy</li>
@@ -59,25 +92,29 @@
 						<li>Postprocessing</li>
 						<li>Leveling the playing field</li>
 						<li>Cascade and Specificity</li>
-						<li>CSS methodology</li>
-						<li>CSS performance</li>
+						<li>Methodology</li>
+						<li>Performance</li>
 						<li>Documentation / Style Guide Rizzo</li>
 					</ol>
 				</section>
 
 				<section data-background="#d1ebff">
 					<h2>Why do we have a stylesheet strategy</h2>
-					<ul>
-						<li class="fragment">Keeps things simple and DRY.</li>
+          <img class="fragment" src="img/css_is_awesome.png"/>
+        </section>
 
-						<li class="fragment">Reuse as much code as possible.</li>
-						<li class="fragment">It allows us to change direction.</li>
-						<pre class="fragment"><code>%rounded-corners
+        <section data-background="#d1ebff">
+          <h2>Why do we have a stylesheet strategy</h2>
+					<ul>
+						<li>Keeps things simple and DRY</li>
+						<li>Reusability</li>
+						<li>It allows us to change direction.</li>
+						<pre><code>%rounded-corners
   border-radius: 4px
 
 .box
   @extend %rounded-corners</code></pre>
-            <li class="fragment">Keeps file sizes small and css performant.</li>
+            <li>Keeps file sizes small and css performant.</li>
 					</ul>
           <aside class="notes">
             SIMPLE
@@ -112,14 +149,14 @@
 				<section data-background="#d1ebff">
 					<h2>Preprocessing</h2>
           <ul>
-          <li class="fragment">What is it?</li>
-				  <li class="fragment">CSS is hard to DRY</li>
-          <li class="fragment">CSS has no variables, class constructs,  conditionals or loops </li>
-					<li class="fragment">Preporcessor help fill the gap while css standards catch up</li>
-          <li class="fragment">The most common ones are LESS and SASS</li>
-          <li class="fragment">SASS has two distinct syntaxes</li>
+          <li>What is it?</li>
+				  <li>CSS is hard to DRY</li>
+          <li>CSS has no variables, class constructs,  conditionals or loops </li>
+					<li>Preporcessor help fill the gap while css standards catch up</li>
+          <li>The most common ones are LESS and SASS</li>
+          <li>SASS has two distinct syntaxes</li>
           </ul>
-          <pre class="fragment"><code>.SCSS
+          <pre><code>.SCSS
 $primary-color: #333;
 
 body { color: $primary-color; }
@@ -134,13 +171,13 @@ body
            <section data-background="#d1ebff">
            <h2>Preprocessing</h2>
             <ul>
-              <li class="fragment">.SCSS is the newer syntax </li>
-              <li class="fragment">.SASS will never be deprecated</li>
-              <li class="fragment">At Lonely Planet we use .SASS</li>
-              <li class="fragment">Combined with HAML</li>
-              <li class="fragment">The main benefit is maintainability</li>
+              <li>.SCSS is the newer syntax </li>
+              <li>.SASS will never be deprecated</li>
+              <li>At Lonely Planet we use .SASS</li>
+              <li>Combined with HAML</li>
+              <li>The main benefit is maintainability</li>
             </ul>
-            <pre class="fragment"><code>@mixin respond-to($screen-width)
+            <pre><code>@mixin respond-to($screen-width)
   @if $screen-width == narrow-view
     $breakpoint: 360
   @media only screen and (min-width : #{$breakpoint}px)
@@ -162,12 +199,12 @@ body
 				<section data-background="#d1ebff">
 					<h2>Postprocessing</h2>
           <ul>
-            <li class="fragment">What is it and what does it solve?</li>
-            <li class="fragment">Autoprefixer</li>
-            <li class="fragment">Alternatives: mixins, js solutions <a href="http://leaverou.github.io/prefixfree/">prefixfree</a></li>
-             <li class="fragment">Why lonely Planet we choose to use Autoprefixer</li>
+            <li>What is it and what does it solve?</li>
+            <li>Autoprefixer</li>
+            <li>Alternatives: mixins, js solutions <a href="http://leaverou.github.io/prefixfree/">prefixfree</a></li>
+             <li>Why lonely Planet we choose to use Autoprefixer</li>
           </ul>
-					<pre class="fragment"><code data-trim style="font-size: 18px; margin-top: 20px;">
+					<pre><code data-trim style="font-size: 18px; margin-top: 20px;">
 						.box{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -175,13 +212,13 @@ body
 }
 					</code></pre>
 
-          <pre class="fragment"><code>@mixin border-radius($radius) {
+          <pre><code>@mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
   border-radius: $radius;
 }
 .box { @include border-radius(10px); }</code></pre>
-<pre class="fragment"><code data-trim style="font-size: 18px; margin-top: 20px;">
+<pre><code data-trim style="font-size: 18px; margin-top: 20px;">
             .box
   border-radius: 5px
 
@@ -193,49 +230,47 @@ body
         </aside>
 				</section>
 
-				<section data-background="#d1ebff">
+				<section data-state="levelit">
 					<h2>Leveling the playing field</h2>
           <ul>
-            <li class="fragment">Lonely Planet is built using the principles of progressive enhancement.</li>
-            <li class="fragment">What browsers does Lonely Planet support?</li>
-            <li class="fragment">We group browsers based on QuerySelector,Local Storage,ClassList,AddEventListener</li>
-            <li class="fragment">Browsers that do not meet the criteria above only get analytics javascript, svg icons, CSS3 effects or fonts (IE8 is an exception)</li>
-
-
+            <li>Lonely Planet is built using the principles of progressive enhancement.</li>
+            <li>What browsers does Lonely Planet support?</li>
+            <li>We group browsers based on QuerySelector,Local Storage,ClassList,AddEventListener</li>
+            <li>Browsers that do not meet the criteria above only get analytics javascript, svg icons, CSS3 effects or fonts (IE8 is an exception)</li>
 				 <aside class="notes">
           DEFAULT "SYSTEM" CSS
           - consulted when no user or author stylesheet
           - lonely planet normalize.css
         </aside>
         </section>
-        <section data-background="#d1ebff">
+        <section  data-state="levelit">
         <h2>Leveling the playing field</h2>
         <ul>
-           <li class="fragment">Knowing what we support is a good step towards leveling the playing field</li>
-            <li class="fragment">Every browser has a default "system" stylesheet.</li>
-            <li class="fragment">"system" styles aren't consistent across browsers</li>
-            <li class="fragment">Before we wrote a single line of CSS our pages are not consistent across browsers</li>
-            <li class="fragment">reset.css</li>
-            <li class="fragment">normalize.css</li>
-            <li class="fragment">lonelyplanet.com uses <a href="https://github.com/necolas/normalize.css">normalize.css by @necolas</a> (stripped down version to support IE8 +)</li>
+           <li>Knowing what we support is a good step towards leveling the playing field</li>
+            <li>Every browser has a default "system" stylesheet.</li>
+            <li>"system" styles aren't consistent across browsers</li>
+            <li>Before we wrote a single line of CSS our pages are not consistent across browsers</li>
+            <li>reset.css</li>
+            <li>normalize.css</li>
+            <li>lonelyplanet.com uses <a href="https://github.com/necolas/normalize.css">normalize.css by @necolas</a> (stripped down version to support IE8 +)</li>
           </ul>
         </section>
 
 				<section data-background="#d1ebff">
 					<h2>Cascade and Specificity</h2>
           <ul>
-            <li class="fragment">Basic CSS concepts, yet often overlooked (IMO)</li>
-            <li class="fragment">Root cause of CSS quality issues</li>
+            <li>Basic CSS concepts, yet often overlooked (IMO)</li>
+            <li>Root cause of CSS quality issues</li>
             </ul>
-          <pre class="fragment"><code>div{
+          <pre><code>div{
   display: block;
 }</code></pre>
-          <pre class="fragment"><code data-trim style="font-size: 18px; margin-top: 20px;">html body ul li a span#primary {
+          <pre><code data-trim style="font-size: 18px; margin-top: 20px;">html body ul li a span#primary {
   font-weight: bold;
 }</code></pre>
           <ul>
-					<li class="fragment">CASCADE: Uses selector pattern matching to apply to elements style declarations that have cascaded from various sources</li>
-          <li class="fragment">When more declarations apply to an element, importance, origin, specificity, and the source order determines which style to apply</li>
+					<li>CASCADE: Uses selector pattern matching to apply to elements style declarations that have cascaded from various sources</li>
+          <li>When more declarations apply to an element, importance, origin, specificity, and the source order determines which style to apply</li>
         </ul>
           <aside class="notes">
             SEPCIFICITY
@@ -250,9 +285,9 @@ body
         <section data-background="#d1ebff">
           <h2>Cascade and Specificity</h2>
           <ul>
-          <li  class="fragment">SPECIFICITY: if importance and origin is the most specific selector will take precedence.</li>
+          <li >SPECIFICITY: if importance and origin is the most specific selector will take precedence.</li>
           </ul>
-          <table class="fragment">
+          <table>
           <thread>
             <tr><th>Least specific to most specific</th></tr>
           </thread>
@@ -268,15 +303,15 @@ body
         </section>
 
 				<section data-background="#d1ebff">
-					<h2>CSS methodology</h2>
+					<h2>Methodology</h2>
           <ul>
-          <li class="fragment">A methodology tells us how to do stuff</li>
-          <li class="fragment">2+1 most common css methodologies are OOCSS, BEM and SMACSS</li>
-          <li class="fragment">Each trying to achieve maintainable, reusable CSS in different ways</li>
-          <li class="fragment">OOCSS is DRYing CSS using Object oriented design</li>
-          <li class="fragment">BEM or block element modifier is a naming convention</li>
+          <li>A methodology tells us how to do stuff</li>
+          <li>2+1 most common css methodologies are OOCSS, BEM and SMACSS</li>
+          <li>Each trying to achieve maintainable, reusable CSS in different ways</li>
+          <li>OOCSS is DRYing CSS using Object oriented design</li>
+          <li>BEM or block element modifier is a naming convention</li>
           </ul>
-          <pre class="fragment"><code>.site-nav {} /* Block */
+          <pre><code>.site-nav {} /* Block */
 .site-nav__field {} /* Element */
 .site-nav__field--full {} /* Modifier */</code></pre>
           <aside class="notes">
@@ -292,26 +327,26 @@ body
         </section>
 
         <section data-background="#d1ebff">
-        <h2>CSS methodology</h2>
+        <h2>Methodology</h2>
           <ul>
-           <li class="fragment">SMACSS +1 most influential aspect is its organizational system</li>
-          <li class="fragment">At Lonely Planet we use ideas from SMACSS to organize our source files loosely follow OOCSS using BEM naming conventions</li>
+           <li>SMACSS +1 most influential aspect is its organizational system</li>
+          <li>At Lonely Planet we use ideas from SMACSS to organize our source files loosely follow OOCSS using BEM naming conventions</li>
           </ul>
         </section>
       	<section data-background="#d1ebff">
-					<h2>CSS performance</h2>
+					<h2>Performance</h2>
           <ul>
-            <li class="fragment">download speed, selector performance and reflows</li>
-            <li class="fragment">We minimize css and create 2 css bundles core and app</li>
-            <li class="fragment">Core.css is cached across lp.com includes: fonts, grids and header/footer styles</li>
-            <li class="fragment">Our performance monitoring section helps us keep stats about stylesheets <a href="http://rizzo.lonelyplanet.com/performance/css-analysis">css analysis</a></li>
-            <li class="fragment">CSS styles are start parsed from right to left</li>
+            <li>download speed, selector performance and reflows</li>
+            <li>We minimize css and create 2 css bundles core and app</li>
+            <li>Core.css is cached across lp.com includes: fonts, grids and header/footer styles</li>
+            <li>Our performance monitoring section helps us keep stats about stylesheets <a href="http://rizzo.lonelyplanet.com/performance/css-analysis">css analysis</a></li>
+            <li>CSS styles are start parsed from right to left</li>
           </ul>
-<pre class="fragment"><code>.row div{ border: 1px solid red;}</code></pre>
+<pre><code>.row div{ border: 1px solid red;}</code></pre>
           <ul>
-            <li class="fragment">Leave efficient parsing to the engine</li>
-            <li class="fragment">Edge cases <a href="http://vimeo.com/54990931">github's</a>file diff pages</li>
-            <li class="fragment">minimize reflows by reducing DOM depth,less css rules, animations on fixed or absolute positioned elements
+            <li>Leave efficient parsing to the engine</li>
+            <li>Edge cases <a href="http://vimeo.com/54990931">github's</a>file diff pages</li>
+            <li>minimize reflows by reducing DOM depth,less css rules, animations on fixed or absolute positioned elements
             </li>
           </ul>
 					<aside class="notes">
@@ -358,12 +393,7 @@ overwhelmed with requests for additions fixes ideas
             </aside>
         </section>
 
-        <section data-background="#d1ebff">
-					<h2>QUESTIONS ?</h2>
-					<p>
-						<a href="http://twitter.com/gcziprusz">@gcziprusz</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-						<a href="mailto:gabe.cziprusz@lonelyplanet.com">gabe.cziprusz@lonelyplanet.com</a>
-					</p>
+        <section data-state="questions">
 				</section>
 			</div>
 		</div>
