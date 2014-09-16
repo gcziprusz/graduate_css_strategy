@@ -171,8 +171,9 @@
   border-radius: 4px
 
 .box
+  @extend %rounded-corners
+.button
   @extend %rounded-corners</code></pre>
-            <li>Keeps file sizes small and css performant.</li>
 					</ul>
           <aside class="notes">
             SIMPLE
@@ -189,7 +190,6 @@
               - solid reausable css should allow us to just build a new page without
               adding new styles
               - we want a small managable source code
-              - css doesnt minify well
             PIVOT
               - things are centralized
               - organized
@@ -197,20 +197,15 @@
               - headings
               - colors
               - buttons
-            PERFORMANCE
-              - first 2 points above help us keep file size small
-              - its importnat to try to keep fileizes small
-              - we have a bundles and we minify but CSS doesnt minify as well well as JS
             </aside>
 				</section>
 
 				<section data-state="pre">
 					<h2>Preprocessing</h2>
           <ul>
-          <li>What is it?</li>
-				  <li>CSS is hard to DRY</li>
-          <li>CSS has no variables, class constructs,  conditionals or loops </li>
-					<li>Preporcessor help fill the gap while css standards catch up</li>
+          <li>It is a CSS language extension</li>
+				  <li>Provides variables, functions(mixins), conditionals and loops</li>
+          <li>Helps DRY CSS</li>
           <li>The most common ones are LESS, Stylus and SASS</li>
           <li>SASS has two distinct syntaxes</li>
           </ul>
@@ -224,6 +219,9 @@ primary-color: #333
 body
   color: $primary-color</code></pre>
 
+          <aside class="notes">
+            Provides help fill the gap while css standards catch up
+          </aside>
            </section>
 
            <section data-state="pre">
@@ -235,9 +233,7 @@ body
               <li>Combined with HAML</li>
               <li>The main benefit is maintainability</li>
             </ul>
-            <pre><code>@mixin respond-to($screen-width)
-  @if $screen-width == narrow-view
-    $breakpoint: 360
+            <pre><code>@mixin respond-to($breakpoint)
   @media only screen and (min-width : #{$breakpoint}px)
     @content
 
@@ -345,19 +341,14 @@ body
           <ul>
           <li >SPECIFICITY: if importance and origin is the most specific selector will take precedence.</li>
           </ul>
-          <table>
-          <thread>
-            <tr><th>Least specific to most specific</th></tr>
-          </thread>
-          <tbody>
-          <tr><td>Universal selectors</td></tr>
-         <tr><td>Type selectors</td></tr>
-         <tr><td>Class selectors</td></tr>
-         <tr><td>Attributes selectors</td></tr>
-         <tr><td>Pseudo-classes</td></tr>
-         <tr><td>ID selectors</td></tr>
-         <tr><td>Inline style</td></tr></tbody>
-          </table>
+          <ul>
+          <li>Universal selectors</li>
+         <li>Type selectors</li>
+         <li>Class selectors</li>
+         <li>Attributes selectors</li>
+         <li>Pseudo-classes</li>
+         <li>ID selectors</li>
+         <li>Inline style</li></ul>
         </section>
 
 				<section data-state="bem">
@@ -404,7 +395,7 @@ body
 <pre><code>.row div{ border: 1px solid red;}</code></pre>
           <ul>
             <li>Leave efficient parsing to the engine</li>
-            <li>Edge cases <a href="http://vimeo.com/54990931">github's</a>file diff pages</li>
+            <li>Edge cases <a href="http://vimeo.com/54990931">github's</a> file diff pages</li>
             <li>minimize reflows by reducing DOM depth,less css rules, animations on fixed or absolute positioned elements
             </li>
           </ul>
