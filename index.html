@@ -106,8 +106,8 @@
 			.intro section h1{
 				color: #000;
 				text-shadow:none;
-				font-size: 80px;
-				margin-top: 80px;
+				font-size: 100px;
+				margin-top: 60px;
 				font-weight: bold;
 			}
 			.intro p small{
@@ -117,6 +117,34 @@
 			.intro p small a:not(.image){
 				color: #000;
 			}
+      .face{
+          width:500px;
+         -webkit-border-radius: 250px;
+        -moz-border-radius: 250px;
+        border-radius: 250px;
+      }
+      .face-mask{
+        position:relative;
+      }
+      .face-mask .arrow{
+        position: absolute;
+        top:-10px;
+        right:0;
+        width: 250px;
+      }
+      .strike{
+         text-decoration: line-through;
+      }
+      .reveal .regressions{
+        width:180px;
+        vertical-align:middle;
+      }
+      .uni{
+        width: 500px;
+      }
+      .bush{
+        width:600px;
+      }
 		</style>
 		<link rel="stylesheet" href="css/theme/sky.css" id="sky">
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -136,30 +164,206 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section data-state="intro">
-					<h1>Graduate Your Stylesheet Strategy</h1>
-					<p>
-						<small><a href="http://gabrielcziprusz.com">Gabriel Cziprusz</a> | <a href="http://twitter.com/gcziprusz">@gcziprusz</a></small>
-					</p>
+
+        <section data-state="intro">
+          <h1>
+          <script type="text/javascript">
+           var message = "Graduate Your Stylesheet Strategy".split(" ");
+           var colors = new Array("#142B44","#1D508D","#206FAC","#288AD6");
+           for (var i = 0; i < message.length; i++)
+              document.write(" <span style=\"color:" + colors[(i % colors.length)] + ";\">" + message[i] + " </span>");
+          </script></h1>
 				</section>
-				<section data-state="checklist">
-					<h2>Agenda</h2>
-					<ol>
-						<li>Why do we have a stylesheet strategy</li>
-						<li>Preprocessing</li>
-						<li>Postprocessing</li>
-						<li>Leveling the playing field</li>
-						<li>Cascade and Specificity</li>
-						<li>Methodology</li>
-						<li>Performance</li>
-						<li>Documentation / Style Guide Rizzo</li>
-					</ol>
-				</section>
+
+        <section data-background="#d1ebff">
+          <div class="face-mask">
+            <img src="img/arrow.png" class="arrow fragment"/>
+            <img class="face" src="img/me.jpg"/>
+          </div>
+          <br/>
+          <small><a href="http://gabrielcziprusz.com">Gabriel Cziprusz</a> | <a href="http://twitter.com/gcziprusz">@gcziprusz</a></small>
+        </section>
+
+        <section data-background="#d1ebff">
+        <h2>CSS <span class="strike">forethought</span>
+        <br/> = <br/>painful to maintain CSS</h2>
+        </section>
+
+        <section data-background="#d1ebff">
+        <h2>Automated CSS testing = <img class="uni" src="img/unicorn.jpg"></h2>
+        </section>
+
+        <section data-background="#d1ebff">
+        <h2><span>Regression</span> <img src="img/bug.png" class="regressions"/> <span>'s</span></h2>
+        </section>
+
+        <section data-background="#d1ebff">
+        <h2>No good excuses to write bad CSS in 2014</h2>
+        </section>
+
+        <section data-background="#d1ebff">
+        <h2>Few iterations later we had a stylesheet strategy</h2>
+        </section>
+
+        <section data-background="#d1ebff">
+        <h2>CSS is really easy</h2>
+        </section>
+
+        <section data-background="#d1ebff">
+        <h2>How hard can it be</h2>
+         <img src="img/sel-dec.png">
+        </section>
+
+        <section data-background="#d1ebff">
+        <h2>html + css = site</h2>
+        </section>
+
+        <section data-background="#d1ebff">
+        <h2>1 CSS file and hack away</h2>
+        </section>
+
+         <section data-background="#d1ebff">
+        <h2>Keep adding to the bottom</h2>
+        </section>
+
+        <section data-background="#d1ebff">
+        <h2>Result = 8000+ lines</h2>
+        </section>
+
+         <section data-background="#d1ebff">
+         <code><pre>.controlPanel-menuHolder .controlPanel-column,
+.controlPanel-menuHolder ul.controlPanel-column,
+.controlPanel-menuHolder ul.controlPanel-rootHolder {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  float: left;
+}
+.controlPanel-menuHolder a.rootActive-Link,
+.controlPanel-menuHolder a.rootActive-Link:link,
+.controlPanel-menuHolder a.rootActive-Link:visited,
+.controlPanel-menuHolder a.controlPanel-rootLink:hover,
+.controlPanel-menuHolder li.controlPanel-logo:hover a.controlPanel-rootLink,
+.controlPanel-menuHolder li.controlPanel-logo:hover a.controlPanel-rootLink:link,
+.controlPanel-menuHolder li.controlPanel-logo:hover a.controlPanel-rootLink:visited{
+  background: #414448;
+  border-color: #000;
+  border-bottom-color: transparent;
+}
+div.Template_StaffDirectory ul.SocialNetwork li div{
+  font-size: 10px;
+  line-height: 12px;
+}</pre></code>
+        </section>
+
+        <section data-background="#d1ebff">
+          <h2>Ad-hoc style development</h2>
+          <img src="img/too-much.jpg"/>
+        </section>
+
+        <section data-background="#d1ebff">
+          <h2>Where do we go from here?</h2>
+          <img src="img/backwards-gun.jpg"/>
+        </section>
+
+        <section data-background="#d1ebff">
+          <code>/*** DO NOT EVER CHANGE THIS !!!! ***/</code>
+        </section>
+
+        <section data-background="#d1ebff">
+           <img class="bush" src="img/hiding-in-bush.gif"/>
+        </section>
+
+        <section data-background="#d1ebff">
+          <h2>Can't hack our way out</h2>
+        </section>
+
+        <section data-background="#d1ebff">
+          <h2>Time to rethink our approach</h2>
+        </section>
+
+        <section data-background="#d1ebff">
+          <h2>Need architecture</h2>
+        </section>
+
+        <section data-background="#d1ebff">
+          <h2>SMACSS</h2>
+          <p>Organizational system</p>
+        </section>
+
+        <section data-background="#d1ebff">
+          <h2>150 source files</h2>
+        </section>
+
+        <section data-background="#d1ebff">
+          <h2>lonelyplanet.com is served by 10 distinct applications</h2>
+        </section>
+
+        <section data-background="#d1ebff">
+          <h2>CSS is minified + distributed in 2 files</h2>
+        </section>
+
+        <section data-background="#d1ebff">
+          <h2>core.css includes fonts, grids and header/footer </h2>
+        </section>
+
+        <section data-background="#d1ebff">
+          <h2>app.css includes specific application styles + non core components</h2>
+        </section>
+
+
+
+
+        we have our files organized now we ready to discuss what to put inside the files
+
+        another issue was inheritance and specificity
+        inheritance
+
+        specificity
+
+        BEM methodology
+
+        Browser support
+
+        Browser inconsistencies
+
+        CSS language + syntax
+        SASS machine readable + human readable
+
+
+        CSS specs and browser vendors + postprocessor
+
+
+        Specificity
+
+        Methodology - oocss,BEM,SMACSS
+
+        Performance -downlad, parse , minify
+
+        CSS documentation
+
+        Style guide - Rizzo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 				<section data-background="#d1ebff">
 					<h2>Why do we have a stylesheet strategy</h2>
           <img class="fragment" src="img/css_is_awesome.png"/>
         </section>
+
 
         <section data-background="#d1ebff">
           <h2>Why do we have a stylesheet strategy</h2>
