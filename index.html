@@ -231,7 +231,7 @@
         </section>
 
          <section data-background="#d1ebff">
-         <code><pre>.controlPanel-menuHolder .controlPanel-column,
+         <pre><code>.controlPanel-menuHolder .controlPanel-column,
 .controlPanel-menuHolder ul.controlPanel-column,
 .controlPanel-menuHolder ul.controlPanel-rootHolder {
   margin: 0;
@@ -253,7 +253,7 @@
 div.Template_StaffDirectory ul.SocialNetwork li div{
   font-size: 10px;
   line-height: 12px;
-}</pre></code>
+}</code></pre>
         </section>
 
         <section data-background="#d1ebff">
@@ -267,7 +267,7 @@ div.Template_StaffDirectory ul.SocialNetwork li div{
         </section>
 
         <section data-background="#d1ebff">
-          <code>/*** DO NOT EVER CHANGE THIS !!!! ***/</code>
+          <pre><code>/*** DO NOT EVER CHANGE THIS !!!! ***/</code></pre>
         </section>
 
         <section data-background="#d1ebff">
@@ -311,108 +311,34 @@ div.Template_StaffDirectory ul.SocialNetwork li div{
           <h2>app.css includes specific application styles + non core components</h2>
         </section>
 
-
-
-
-        we have our files organized now we ready to discuss what to put inside the files
-
-        another issue was inheritance and specificity
-        inheritance
-
-        specificity
-
-        BEM methodology
-
-        Browser support
-
-        Browser inconsistencies
-
-        CSS language + syntax
-        SASS machine readable + human readable
-
-
-        CSS specs and browser vendors + postprocessor
-
-
-        Specificity
-
-        Methodology - oocss,BEM,SMACSS
-
-        Performance -downlad, parse , minify
-
-        CSS documentation
-
-        Style guide - Rizzo
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-				<section data-background="#d1ebff">
-					<h2>Why do we have a stylesheet strategy</h2>
-          <img class="fragment" src="img/css_is_awesome.png"/>
+        <section data-background="#d1ebff">
+          <h2>What are we going to write?</h2>
         </section>
 
+        <section data-background="#d1ebff">
+          <h2>limitations of css</h2>
+        </section>
 
         <section data-background="#d1ebff">
-          <h2>Why do we have a stylesheet strategy</h2>
-					<ul>
-						<li>Keeps things simple and DRY</li>
-						<li>Reusability</li>
-						<li>It allows us to change direction.</li>
-						<pre><code>%rounded-corners
-  border-radius: 4px
+          <h2>syntactic sugar</h2>
+          <p>variables, functions(mixins), conditionals and loops</p>
+        </section>
 
-.box
-  @extend %rounded-corners
-.button
-  @extend %rounded-corners</code></pre>
-					</ul>
-          <aside class="notes">
-            SIMPLE
-              - sounds self explanatory but this is a very imporant goal for us
-              - application complexity goes UP
-              - css is low barrier of entry, easy to understand and get started with
-              - hard to maintain no constructs , loops, conditional, variables
-              - can be the most fragile piece of your system,
-              - test automation is hard
-            REUSE
-             - ad-hoc style development
-              - we dont want the code to keep growing
-              - think about it our sites all pages should have a coherent look
-              - solid reausable css should allow us to just build a new page without
-              adding new styles
-              - we want a small managable source code
-            PIVOT
-              - things are centralized
-              - organized
-              - grids are consistent
-              - headings
-              - colors
-              - buttons
-            </aside>
-				</section>
+        <section data-state="pre">
+          <h2>Preprocessors</h2>
+          <p>It is a CSS language extension</p>
+        </section>
 
-				<section data-state="pre">
-					<h2>Preprocessing</h2>
-          <ul>
-          <li>It is a CSS language extension</li>
-				  <li>Provides variables, functions(mixins), conditionals and loops</li>
-          <li>Helps DRY CSS</li>
-          <li>The most common ones are LESS, Stylus and SASS</li>
-          <li>SASS has two distinct syntaxes</li>
-          </ul>
+        <section data-state="pre">
+          <h2>preproccessed language -> CSS</h2>
+        </section>
+
+        <section data-state="pre">
+          <h2>SASS LESS STYLUS</h2>
+        </section>
+
+         <section data-state="pre">
+          <h2>SASS .sass + .scss</h2>
           <pre><code>.SCSS
 $primary-color: #333;
 
@@ -422,22 +348,11 @@ body { color: $primary-color; }
 primary-color: #333
 body
   color: $primary-color</code></pre>
+        </section>
 
-          <aside class="notes">
-            Provides help fill the gap while css standards catch up
-          </aside>
-           </section>
-
-           <section data-state="pre">
-           <h2>Preprocessing</h2>
-            <ul>
-              <li>.SCSS is the newer syntax </li>
-              <li>.SASS will never be deprecated</li>
-              <li>At Lonely Planet we use .SASS</li>
-              <li>Combined with HAML</li>
-              <li>The main benefit is maintainability</li>
-            </ul>
-            <pre><code>@mixin respond-to($breakpoint)
+         <section data-state="pre">
+          <h2>SASS maintainability ++</h2>
+        <pre><code>@mixin respond-to($breakpoint)
   @media only screen and (min-width : #{$breakpoint}px)
     @content
 
@@ -446,29 +361,28 @@ body
   +respond-to(narrow-view)
     width: 50px
     float: left</code></pre>
-            <aside class="notes">
-              .SASS
-                - no bracket little bit more succinct syntax
-                - .SCSS is an easier transition for developer
-                - .CSS is valid .SCSS
-            </aside>
-				</section>
+    </section>
 
-				<section data-background="#d1ebff">
-					<h2>Postprocessing</h2>
-          <ul>
-            <li>What is it and what does it solve?</li>
-            <li>Autoprefixer</li>
-            <li>Alternatives: mixins, js solutions <a href="http://leaverou.github.io/prefixfree/">prefixfree</a></li>
-             <li>Why lonely Planet we choose to use Autoprefixer</li>
-          </ul>
-					<pre><code data-trim style="font-size: 18px; margin-top: 20px;">
-						.box{
+     <section data-state="pre">
+      <h2>vendor prefix hell</h2>
+    </section>
+
+    <section data-state="pre">
+      <h2>mixins, js solutions (prefixfree), postprocessing</h2>
+    </section>
+
+    <section data-state="pre">
+      <h2>Autoprefixer</h2>
+    </section>
+
+    <section data-state="pre">
+     <pre><code data-trim style="font-size: 18px; margin-top: 20px;">
+            .box{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  border-radius: 	5px;
+  border-radius:  5px;
 }
-					</code></pre>
+          </code></pre>
 
           <pre><code>@mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -481,174 +395,13 @@ body
   border-radius: 5px
 
           </code></pre>
-        <aside class="notes">
-        WHAT IS IT
-         - new CSS3 features are only available using vendor prefixes while the specification that hasn’t been finalized.
-         - This can create a lot of clutter in our stylesheets:
-        </aside>
-				</section>
+      </section>
 
-				<section data-state="levelit">
-					<h2>Leveling the playing field</h2>
-          <ul>
-            <li>Lonely Planet is built using the principles of progressive enhancement.</li>
-            <li>What browsers does Lonely Planet support?</li>
-            <li>We group browsers based on QuerySelector,Local Storage,ClassList,AddEventListener</li>
-            <li>Browsers that do not meet the criteria above only get analytics javascript, svg icons, CSS3 effects or fonts (IE8 is an exception)</li>
-				 <aside class="notes">
-          DEFAULT "SYSTEM" CSS
-          - consulted when no user or author stylesheet
-          - lonely planet normalize.css
-        </aside>
-        </section>
-        <section  data-state="levelit">
-        <h2>Leveling the playing field</h2>
-        <ul>
-           <li>Knowing what we support is a good step towards leveling the playing field</li>
-            <li>Every browser has a default "system" stylesheet.</li>
-            <li>"system" styles aren't consistent across browsers</li>
-            <li>Before we wrote a single line of CSS our pages are not consistent across browsers</li>
-            <li>reset.css</li>
-            <li>normalize.css</li>
-            <li>lonelyplanet.com uses <a href="https://github.com/necolas/normalize.css">normalize.css by @necolas</a> (stripped down version to support IE8 +)</li>
-          </ul>
-        </section>
 
-				<section data-background="#d1ebff">
-					<h2>Cascade and Specificity</h2>
-          <ul>
-            <li>Basic CSS concepts, yet often overlooked (IMO)</li>
-            <li>Root cause of CSS quality issues</li>
-            </ul>
-          <pre><code>div{
-  display: block;
-}</code></pre>
-          <pre><code data-trim style="font-size: 18px; margin-top: 20px;">html body ul li a span#primary {
-  font-weight: bold;
-}</code></pre>
-          <ul>
-					<li>CASCADE: Uses selector pattern matching to apply to elements style declarations that have cascaded from various sources</li>
-          <li>When more declarations apply to an element, importance, origin, specificity, and the source order determines which style to apply</li>
-        </ul>
-          <aside class="notes">
-            SEPCIFICITY
-             - specificity "war"
-             - slippery slope
-            CASCADE
-             - only style whats different
-             -
-          </aside>
-				</section>
 
-        <section data-background="#d1ebff">
-          <h2>Cascade and Specificity</h2>
-          <ul>
-          <li >SPECIFICITY: if importance and origin is the most specific selector will take precedence.</li>
-          </ul>
-          <ul>
-          <li>Universal selectors</li>
-         <li>Type selectors</li>
-         <li>Class selectors</li>
-         <li>Attributes selectors</li>
-         <li>Pseudo-classes</li>
-         <li>ID selectors</li>
-         <li>Inline style</li></ul>
-        </section>
 
-				<section data-state="bem">
-					<h2>Methodology</h2>
-          <ul>
-          <li>A methodology tells us how to do stuff</li>
-          <li>2+1 most common css methodologies are OOCSS, BEM and SMACSS</li>
-          <li>Each trying to achieve maintainable, reusable CSS in different ways</li>
-          <li>OOCSS is DRYing CSS using Object oriented design</li>
-          <li>BEM or block element modifier is a naming convention</li>
-          </ul>
-          <pre><code>.site-nav {} /* Block */
-.site-nav__field {} /* Element */
-.site-nav__field--full {} /* Modifier */</code></pre>
-          <aside class="notes">
-            OOCSS
-              Nicole Sullivan  ~2009
 
-              Each have drawbacks
-            BEM
-						 + semantics
-             - wordy classnames
-             - styles are easy to override
-				  </aside>
-        </section>
 
-        <section data-state="bem">
-        <h2>Methodology</h2>
-          <ul>
-           <li>SMACSS +1 most influential aspect is its organizational system</li>
-          <li>At Lonely Planet we use ideas from SMACSS to organize our source files loosely follow OOCSS using BEM naming conventions</li>
-          </ul>
-        </section>
-      	<section data-state="performance">
-        <img src="img/performance.png"/>
-          <h2>Performance</h2>
-          <ul>
-            <li>download speed, selector performance and reflows</li>
-            <li>We minimize css and create 2 css bundles core and app</li>
-            <li>Core.css is cached across lp.com includes: fonts, grids and header/footer styles</li>
-            <li>Our performance monitoring section helps us keep stats about stylesheets <a href="http://rizzo.lonelyplanet.com/performance/css-analysis">css analysis</a></li>
-            <li>CSS styles are start parsed from right to left</li>
-          </ul>
-<pre><code>.row div{ border: 1px solid red;}</code></pre>
-          <ul>
-            <li>Leave efficient parsing to the engine</li>
-            <li>Edge cases <a href="http://vimeo.com/54990931">github's</a> file diff pages</li>
-            <li>minimize reflows by reducing DOM depth,less css rules, animations on fixed or absolute positioned elements
-            </li>
-          </ul>
-					<aside class="notes">
-            Lonely Planet we minimize CSS and load 2 files core cached for all of lp.com and section specific
-            caching and file size
-            PERFORMANCE
-            Beneficial to know general rules
-            rightmost is the key selector
-             http://vimeo.com/54990931
-          </aside>
-				</section>
-
-				<section data-state="rizzo">
-					<h2>Documentation / Style Guide Rizzo</h2>
-           <ul>
-              <li>We believe in self documenting code and make documentation integral part of the codebase</li>
-              <li>[doc]..[/doc] blocks that render sections of our styleguide</li>
-            </ul>
-				</section>
-
-        <section data-state="rizzo">
-          <h2>Documentation / Style Guide Rizzo</h2>
-            <pre><code>// [doc] Vertically center content.
-// Use this class on the container and __inner on the element to be centered.
-// [/doc]
-.vertically-centered</code></pre>
-            <img src="img/centered.png" style="width:800px"/>
-        </section>
-
-        <section data-state="rizzo">
-          <h2>Documentation / Style Guide Rizzo</h2>
-           <ul>
-              <li>Our open source Styleguide rizzo.lonelyplanet.com is our strategy materialized</li>
-              <li>It was created by @ianfeather and his team in London</li>
-              <li>Provides consistent UI look and feel</li>
-              <li>Aggregates our docs, methodology and metrics</li>
-              <li>Great tool for our designers and third parties</li>
-              <li>Reuse grid, utility classes, helpers</li>
-              <li>It's unique and successfule because it's a live representation of our front end</li>
-            </ul>
-            <aside class="notes">
-              hit the jackpot when their team started to get
-overwhelmed with requests for additions fixes ideas
-            </aside>
-        </section>
-
-        <section data-state="questions">
-				</section>
 			</div>
 		</div>
 		<script src="lib/js/head.min.js"></script>
