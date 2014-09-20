@@ -16,19 +16,24 @@
         background-size: contain;
       }
       .pre section{
-         background:rgba(0,0,0,0.8);
+         background:rgba(0,0,0,0.9);
         color:#fff;
       }
       .pre section h2{
         color:#fff;
       }
       .rizzo body{
-        background:url("img/rizzo.jpg");
+        background:url("img/Rizzo.jpg");
         background-position:top left;
       }
       .rizzo section{
-         background:rgba(0,0,0,0.8);
-        color:#fff;
+         background:rgba(0,0,0,0.9);
+         color:#fff;
+         padding: 150px 0!important;
+      }
+      .rizzo section a,.rizzo section a:visited,.rizzo section a:hover{
+        color:yellow!important;
+        text-decoration: underline!important;
       }
       .rizzo section h2{
         color:#fff;
@@ -38,20 +43,7 @@
 				background-position:center;
 				background-size: cover;
 			}
-      .checklist body{
-        background:url("img/checklist.jpg");
-        background-position:center;
-        background-size: cover;
-        color: #fff;
-      }
-      .questions body{
-        background:url("img/questions.png") no-repeat top center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        color: #fff;
-      }
+
       .bem body{
         background:url("img/bem.jpg") no-repeat top center fixed;
         -webkit-background-size: cover;
@@ -61,25 +53,6 @@
         color: #fff;
       }
 
-      .performance body{
-        background:#C10D07;
-      }
-      .performance section img{
-        position: absolute;
-        top:0;
-        left:-622px;
-      }
-      .performance .slides>section{
-        left:-20%;
-        width:80%;
-      }
-      .performance section h2 ,.performance section ul li{
-        color:#C1C7A9;
-      }
-      .performance section a:not(.image){
-        color:#C1C7A9;
-        text-decoration: underline;
-      }
        .levelit body{
         background:url("img/browsers.png");
         background-position:top left;
@@ -90,19 +63,15 @@
         color:#fff;
        }
       .levelit section{
-         background:rgba(0,0,0,0.8);
-        color:#fff;
+         background:rgba(0,0,0,0.9);
+         color:#fff;
+         padding: 150px 0!important;
       }
 
       .bem section{
         background:rgba(255,255,255,0.95);
       }
 
-      .checklist ol,.checklist .reveal h2{
-        color:#fff;
-        margin-left: 75px;
-        list-style-position: inside;
-      }
       section ul{
         padding-left:60px;
       }
@@ -122,17 +91,20 @@
 				color: #000;
 			}
       .face{
-          width:500px;
-         -webkit-border-radius: 250px;
-        -moz-border-radius: 250px;
-        border-radius: 250px;
+          width:400px;
+         -webkit-border-radius: 200px;
+        -moz-border-radius: 200px;
+        border-radius: 200px;
+      }
+      .lp{
+        width: 150px;
       }
       .face-mask{
         position:relative;
       }
       .face-mask .arrow{
         position: absolute;
-        top:-10px;
+        top:-60px;
         right:0;
         width: 250px;
       }
@@ -153,11 +125,7 @@
         width:600px;
       }
       .welcome body{
-         background: #d1ebff url("img/lonelyplanet.png") no-repeat top left fixed;
-        -webkit-background-size: 20%;
-        -moz-background-size: 20%;
-        -o-background-size: 20%;
-        background-size: 20%;
+         background: #d1ebff;
       }
        .mess body{
          background: #d1ebff url("img/mess.png") no-repeat top left fixed;
@@ -200,7 +168,9 @@
 				</section>
 
           <section data-state="welcome">
+            <img src="img/lonelyplanet.png" class="lp"/>
             <div class="face-mask">
+
               <img src="img/arrow.png" class="arrow fragment"/>
               <img class="face" src="img/me.jpg"/>
             </div>
@@ -266,29 +236,6 @@
         </section>
 
          <section data-state="mess">
-        <!-- <pre><code>.controlPanel-menuHolder .controlPanel-column,
-.controlPanel-menuHolder ul.controlPanel-column,
-.controlPanel-menuHolder ul.controlPanel-rootHolder {
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  float: left;
-}
-.controlPanel-menuHolder a.rootActive-Link,
-.controlPanel-menuHolder a.rootActive-Link:link,
-.controlPanel-menuHolder a.rootActive-Link:visited,
-.controlPanel-menuHolder a.controlPanel-rootLink:hover,
-.controlPanel-menuHolder li.controlPanel-logo:hover a.controlPanel-rootLink,
-.controlPanel-menuHolder li.controlPanel-logo:hover a.controlPanel-rootLink:link,
-.controlPanel-menuHolder li.controlPanel-logo:hover a.controlPanel-rootLink:visited{
-  background: #414448;
-  border-color: #000;
-  border-bottom-color: transparent;
-}
-div.Template_StaffDirectory ul.SocialNetwork li div{
-  font-size: 10px;
-  line-height: 12px;
-}</code></pre>-->
         </section>
 
         <section data-background="#d1ebff">
@@ -302,7 +249,7 @@ div.Template_StaffDirectory ul.SocialNetwork li div{
         </section>
 
         <section data-background="#d1ebff">
-          <code>/*** DO NOT EVER CHANGE THIS !!!! ***/</code>
+          <code style="font-size:1.4em;">/** DO NOT EVER CHANGE THIS! **/</code>
         </section>
 
         <section data-background="#d1ebff">
@@ -451,40 +398,40 @@ body
     </section>
 
     <section data-background="#d1ebff">
-      <h2>another issue with ad-hoc</h2>
+      <h2>issue with ad-hoc</h2>
       <p>long selector chains</p>
       <p>incorrect specificity</p>
     </section>
 
-    <section data-background="#d1ebff">
+    <section  data-state="bem">
       <h2>Need methodology</h2>
       <p>A methodology tells us how to do stuff</p>
     </section>
 
-    <section data-background="#d1ebff">
+    <section data-state="bem">
       <h2>BEM methodology</h2>
       <p>object oriented design ideas</p>
     </section>
 
-    <section data-background="#d1ebff">
+    <section data-state="bem">
       <h2>Block, Element, Modifier</h2>
       <p>Naming convention</p>
     </section>
 
-    <section data-background="#d1ebff">
+    <section  data-state="bem">
       <h2>Block, Element, Modifier</h2>
       <pre style="font-size:1em;"><code>.site-nav {} /* Block */
 .site-nav__field {} /* Element */
 .site-nav__field--full {} /* Modifier */</code></pre>
     </section>
 
-    <section data-background="#d1ebff">
+    <section  data-state="bem">
       <h2>Semantics</h2>
       <p>Adds meaning to selectors</p>
       <pre style="font-size:1em;"><code>.person__hand--left {}</code></pre>
     </section>
 
-    <section data-background="#d1ebff">
+    <section  data-state="bem">
       <h2>Meaning</h2>
       <pre style="font-size:1em;"><code>.js-widget</code></pre>
       <pre style="font-size:1em;"><code>.is-hidden</code></pre>
@@ -538,52 +485,51 @@ body
      </section>
 
     <!------BROWSER SUPPORT------>
-    <section data-background="#d1ebff">
+    <section data-state="levelit">
       <h2>Browser support</h2>
     </section>
 
-    <section data-background="#d1ebff">
+    <section  data-state="levelit">
       <h2>not a list of browsers + versions</h2>
     </section>
 
-    <section data-background="#d1ebff">
+    <section  data-state="levelit">
       <h2>progressive enhancement</h2>
     </section>
 
-    <section data-background="#d1ebff">
+    <section  data-state="levelit">
       <h2>cutting the mustard</h2>
       <p>QuerySelector, Local Storage, ClassList, AddEventListener</p>
-      <a href="http://responsivenews.co.uk/post/18948466399/cutting-the-mustard">cutting the mustard</a>
     </section>
 
-    <section data-background="#d1ebff">
+    <section  data-state="levelit">
       <h2>:) Browsers</h2>
       <p>full experience</p>
     </section>
 
-    <section data-background="#d1ebff">
+    <section  data-state="levelit">
       <h2>:( Browsers</h2>
       <p>no svg icons, no CSS3 effects, no custom fonts</p>
     </section>
 
     <!---------CSS documentation -------------->
-    <section data-background="#d1ebff">
+    <section data-state="rizzo">
       <h2>documentation</h2>
     </section>
 
-    <section data-background="#d1ebff">
+    <section data-state="rizzo">
       <h2>self documenting code doesn't cut it</h2>
     </section>
 
-     <section data-background="#d1ebff">
+     <section data-state="rizzo">
       <h2>BUT.... it's a pain and it's first to go out of date :(</h2>
     </section>
 
-     <section data-background="#d1ebff">
+     <section data-state="rizzo">
       <h2>we have a compromise</h2>
     </section>
 
-    <section data-background="#d1ebff">
+    <section data-state="rizzo">
       <code>[doc]..[/doc]</code>
     </section>
 
@@ -599,37 +545,36 @@ body
 
     <!--------- Style guide - Rizzo -->
 
-    <section data-background="#d1ebff">
+    <section data-state="rizzo">
       <h2>Style strategy materialized = Rizzo</h2>
     </section>
 
-    <section data-background="#d1ebff">
+    <section data-state="rizzo">
       <h2>open source Styleguide</h2>
     </section>
 
-    <section data-background="#d1ebff">
+    <section data-state="rizzo">
       <h2><a href="http://rizzo.lonelyplanet.com">rizzo.lonelyplanet.com</a></h2>
     </section>
 
-    <section data-background="#d1ebff">
+    <section data-state="rizzo">
       <h2><a href="https://twitter.com/ianfeather">@ianfeather</a> <br/> and his team in London</h2>
     </section>
 
-    <section data-background="#d1ebff">
+    <section data-state="rizzo">
       <h2>consistent UI look and feel</h2>
     </section>
 
-    <section data-background="#d1ebff">
+    <section data-state="rizzo">
       <h2>style resource for designers + third parties</h2>
     </section>
 
-    <section data-background="#d1ebff">
+    <section data-state="rizzo">
       <h2>live representation of our front end</h2>
     </section>
 
     <section data-background="#d1ebff">
       <h2>Summary</h2>
-
     </section>
 
     <section data-background="#d1ebff">
