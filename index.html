@@ -144,13 +144,30 @@
         vertical-align:middle;
       }
       .uni{
-        width: 500px;
+        width: 700px;
       }
       .bush{
         width:600px;
       }
       .baby{
         width:600px;
+      }
+      .welcome body{
+         background: #d1ebff url("img/lonelyplanet.png") no-repeat top left fixed;
+        -webkit-background-size: 20%;
+        -moz-background-size: 20%;
+        -o-background-size: 20%;
+        background-size: 20%;
+      }
+       .mess body{
+         background: #d1ebff url("img/mess.png") no-repeat top left fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+      .reveal pre{
+        font-size: 1em!important;
       }
 		</style>
 		<link rel="stylesheet" href="css/theme/sky.css" id="sky">
@@ -182,14 +199,14 @@
           </script></h1>
 				</section>
 
-        <section data-background="#d1ebff">
-          <div class="face-mask">
-            <img src="img/arrow.png" class="arrow fragment"/>
-            <img class="face" src="img/me.jpg"/>
-          </div>
-          <br/>
-          <small><a href="http://gabrielcziprusz.com">Gabriel Cziprusz</a> | <a href="http://twitter.com/gcziprusz">@gcziprusz</a></small>
-        </section>
+          <section data-state="welcome">
+            <div class="face-mask">
+              <img src="img/arrow.png" class="arrow fragment"/>
+              <img class="face" src="img/me.jpg"/>
+            </div>
+            <br/>
+            <a href="http://gabrielcziprusz.com">Gabriel Cziprusz</a> | <a href="http://twitter.com/gcziprusz">@gcziprusz</a>
+          </section>
 
         <section data-background="#d1ebff">
         <h2>CSS <span class="strike">forethought</span>
@@ -198,7 +215,7 @@
 
 
         <section data-background="#d1ebff">
-        <h2>fragile</h2>
+          <img src="img/fragile.png"/>
         </section>
 
         <section data-background="#d1ebff">
@@ -210,7 +227,7 @@
         </section>
 
         <section data-background="#d1ebff">
-        <h2>No good excuses to write bad CSS in 2014</h2>
+        <img src="img/no-excuses.jpg" style="width:100%;height:100%;">
         </section>
 
         <section data-background="#d1ebff">
@@ -245,11 +262,11 @@
         </section>
 
         <section data-background="#d1ebff">
-        <h2>Result = 8000 + lines</h2>
+        <h2>Result = 8000+ lines</h2>
         </section>
 
-         <section data-background="#d1ebff">
-         <pre><code>.controlPanel-menuHolder .controlPanel-column,
+         <section data-state="mess">
+        <!-- <pre><code>.controlPanel-menuHolder .controlPanel-column,
 .controlPanel-menuHolder ul.controlPanel-column,
 .controlPanel-menuHolder ul.controlPanel-rootHolder {
   margin: 0;
@@ -271,7 +288,7 @@
 div.Template_StaffDirectory ul.SocialNetwork li div{
   font-size: 10px;
   line-height: 12px;
-}</code></pre>
+}</code></pre>-->
         </section>
 
         <section data-background="#d1ebff">
@@ -294,10 +311,11 @@ div.Template_StaffDirectory ul.SocialNetwork li div{
 
         <section data-background="#d1ebff">
           <h2>Can't hack our way out</h2>
+          <img src="img/dont-hack.jpg">
         </section>
 
-        <section data-background="#d1ebff">
-          <h2>Time to rethink our approach</h2>
+        <section data-background="#fff">
+          <img src="img/rethink.jpg" width="100%"/>
         </section>
 
         <section data-background="#d1ebff">
@@ -306,7 +324,6 @@ div.Template_StaffDirectory ul.SocialNetwork li div{
 
         <section data-background="#d1ebff">
           <h2>SMACSS</h2>
-
           <p>Organizational system</p>
           <ul>
             <li>Base</li>
@@ -323,27 +340,35 @@ div.Template_StaffDirectory ul.SocialNetwork li div{
         </section>
 
         <section data-background="#d1ebff">
-          <h2>lonelyplanet.com is served by 10 distinct applications</h2>
+          <h2><a href="http://lonelyplanet.com">lonelyplanet.com</a> <br/> 10 + applications</h2>
         </section>
 
         <section data-background="#d1ebff">
-          <h2>CSS is minified + distributed in 2 files</h2>
+          <h2>minified + distributed <br/>2 files</h2>
         </section>
 
         <section data-background="#d1ebff">
-          <h2>core.css includes fonts, grids and header/footer </h2>
+          <h2>core.css <br/><br/>
+          fonts, grids and header/footer </h2>
         </section>
 
         <section data-background="#d1ebff">
-          <h2>app.css includes specific application styles + non core components</h2>
+          <h2>application.css <br/><br/>
+          page specific styles + non core components</h2>
+        </section>
+
+        <!------RESETS------>
+        <section data-background="#d1ebff">
+          <h2>default "system" stylesheet</h2>
         </section>
 
         <section data-background="#d1ebff">
-          <h2>What are we going to write?</h2>
+          <h2>CSS lines = 0 <br/>&&<br/> styling inconsistent</h2>
         </section>
 
         <section data-background="#d1ebff">
-          <h2>limitations of css</h2>
+          <h2>reset.css</h2>
+          <h2>normalize.css</h2>
         </section>
 
         <section data-background="#d1ebff">
@@ -361,7 +386,7 @@ div.Template_StaffDirectory ul.SocialNetwork li div{
         </section>
 
         <section data-state="pre">
-          <h2>machine readable VS human readable</h2>
+          <h2>human readable VS machine readable</h2>
         </section>
 
         <section data-state="pre">
@@ -381,7 +406,7 @@ body
   color: $primary-color</code></pre>
         </section>
 
-         <section data-state="pre">
+         <section data-state="pre" style="margin-left:-200px;width:1400px!important;">
           <h2>SASS maintainability ++</h2>
         <pre><code>@mixin respond-to($breakpoint)
   @media only screen and (min-width : #{$breakpoint}px)
@@ -394,27 +419,27 @@ body
     float: left</code></pre>
     </section>
 
-     <section data-background="#d1ebff">
+    <section data-background="#d1ebff">
       <h2>vendor prefix hell</h2>
     </section>
 
-     <section data-background="#d1ebff">
-     <pre><code data-trim style="font-size: 18px; margin-top: 20px;">
+     <section data-background="#d1ebff" class="radius">
+     <pre><code data-trim style=" margin-top: 20px;">
             .box{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius:  5px;
 }
           </code></pre>
-<pre><code data-trim style="font-size: 18px; margin-top: 20px;">
+<pre><code data-trim style="margin-top: 20px;">
             .box
   border-radius: 5px
 
           </code></pre>
-          <aside style="border:3px solid black;width:300px;height:300px;-webkit-border-radius: 15px;
+          <aside style="border:3px solid black;width:200px;height:200px;-webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   border-radius:  15px;margin:0 auto;">border-radius example</aside>
-      </section>
+    </section>
 
     <section data-background="#d1ebff">
       <h2>mixins, js solutions, postprocessing</h2>
@@ -426,203 +451,208 @@ body
     </section>
 
     <section data-background="#d1ebff">
+      <h2>another issue with ad-hoc</h2>
+      <p>long selector chains</p>
+      <p>incorrect specificity</p>
+    </section>
+
+    <section data-background="#d1ebff">
       <h2>Need methodology</h2>
       <p>A methodology tells us how to do stuff</p>
     </section>
 
     <section data-background="#d1ebff">
-      <h2>issue #2 with ad-hoc</h2>
-      <p>long selector chains</p>
-      <p>incorrect specificity</p>
+      <h2>BEM methodology</h2>
+      <p>object oriented design ideas</p>
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>Block, Element, Modifier</h2>
+      <p>Naming convention</p>
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>Block, Element, Modifier</h2>
+      <pre style="font-size:1em;"><code>.site-nav {} /* Block */
+.site-nav__field {} /* Element */
+.site-nav__field--full {} /* Modifier */</code></pre>
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>Semantics</h2>
+      <p>Adds meaning to selectors</p>
+      <pre style="font-size:1em;"><code>.person__hand--left {}</code></pre>
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>Meaning</h2>
+      <pre style="font-size:1em;"><code>.js-widget</code></pre>
+      <pre style="font-size:1em;"><code>.is-hidden</code></pre>
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>agree on using class selectors</h2>
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>selector types</h2>
+      <pre style="font-size:1em;"><code>#widget { } /* id */</code></pre>
+      <pre style="font-size:1em;"><code>.widget { } /* class */</code></pre>
+      <pre style="font-size:1em;"><code>widget { }  /* element */</code></pre>
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>Using classes will aid Specificity</h2>
+      <p>Specificity determines which CSS rule is applied by the browsers.</p>
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>Specificity chart</h2>
+      <img src="img/specificity.png"/>
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>Don't use a grenade to dig a hole when a shovel will do</h2>
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>added bonus - Selector performance</h2>
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>parsed right to left</h2>
+      <p>rightmost is the key selector</p>
+      <pre style="font-size:1em;"><code>.nav .nav__block--left {
+  font-weight: bold;
+}</code></pre>
     </section>
 
       <section data-background="#d1ebff">
-        <h2>BEM methodology</h2>
-      </section>
+      <h2>practical CSS challenges</h2>
+      <ul>
+        <li>Achitecture</li>
+        <li>Syntactic Sugar</li>
+        <li>CSS concepts</li>
+        <li>BEM Methodology</li>
+      </ul>
+     </section>
 
-      <section data-background="#d1ebff">
-        <h2>Block, Element, Modifier</h2>
-        <p>Naming convention</p>
-      </section>
+    <!------BROWSER SUPPORT------>
+    <section data-background="#d1ebff">
+      <h2>Browser support</h2>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>Block, Element, Modifier</h2>
-        <pre style="font-size:1em;"><code>.site-nav {} /* Block */
-.site-nav__field {} /* Element */
-.site-nav__field--full {} /* Modifier */</code></pre>
-      </section>
+    <section data-background="#d1ebff">
+      <h2>not a list of browsers + versions</h2>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>Semantics</h2>
-        <p>Adds meaning to selectors</p>
-        <pre style="font-size:1em;"><code>.person__hand--left {}</code></pre>
-      </section>
+    <section data-background="#d1ebff">
+      <h2>progressive enhancement</h2>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>Meaning</h2>
-        <pre style="font-size:1em;"><code>.js-widget</code></pre>
-        <pre style="font-size:1em;"><code>.is-hidden</code></pre>
-      </section>
+    <section data-background="#d1ebff">
+      <h2>cutting the mustard</h2>
+      <p>QuerySelector, Local Storage, ClassList, AddEventListener</p>
+      <a href="http://responsivenews.co.uk/post/18948466399/cutting-the-mustard">cutting the mustard</a>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>agree on using class selectors</h2>
-      </section>
-
-       <section data-background="#d1ebff">
-        <h2>class selectors</h2>
-        <pre style="font-size:1em;"><code>#widget { } /* id */</code></pre>
-        <pre style="font-size:1em;"><code>.widget { } /* class */</code></pre>
-        <pre style="font-size:1em;"><code>widget { }  /* element */</code></pre>
-      </section>
-
-      <section data-background="#d1ebff">
-        <h2>Using classes will aid Specificity</h2>
-        <p>Specificity determines which CSS rule is applied by the browsers.</p>
-      </section>
-
-      <section data-background="#d1ebff">
-        <h2>Don't use a grenade to dig a hole when a shovel will do</h2>
-      </section>
-
-      <section data-background="#d1ebff">
-        <h2>Specificity chart</h2>
-        <img src="img/specificity.png"/>
-       </section>
-
-      <section data-background="#d1ebff">
-        <h2>added bonus - Selector performance</h2>
-      </section>
-
-      <section data-background="#d1ebff">
-        <h2>parsed right to left</h2>
-        <p>rightmost is the key selector</p>
-        <pre style="font-size:1em;"><code>.nav .nav__block--left {
-font-weight: bold;
-}</code></pre>
-      </section>
-
-
-        <section data-background="#d1ebff">
-        <h2>Practical CSS</h2>
-        <ul>
-          <li>Achitecture</li>
-          <li>Syntactic Sugar</li>
-          <li>CSS concepts</li>
-          <li>BEM Methodology</li>
-        </ul>
-        <p>practical CSS challenges</p>
-      </section>
-
-      <!------BROWSER SUPPORT------>
-      <section data-background="#d1ebff">
-        <h2>Browser support</h2>
-      </section>
-
-      <section data-background="#d1ebff">
-        <h2>not a list of browsers + versions</h2>
-      </section>
-
-      <section data-background="#d1ebff">
-        <h2>progressive enhancement</h2>
-      </section>
-
-      <section data-background="#d1ebff">
-        <h2>Line in the sand</h2>
-        <p>QuerySelector, Local Storage, ClassList, AddEventListener</p>
-      </section>
-
-      <section data-background="#d1ebff">
+    <section data-background="#d1ebff">
       <h2>:) Browsers</h2>
       <p>full experience</p>
-      </section>
+    </section>
 
-      <section data-background="#d1ebff">
+    <section data-background="#d1ebff">
       <h2>:( Browsers</h2>
-      <p>no svg icons, no CSS3 effects, no fonts</p>
-      </section>
+      <p>no svg icons, no CSS3 effects, no custom fonts</p>
+    </section>
 
-      <!------RESETS------>
+    <!---------CSS documentation -------------->
+    <section data-background="#d1ebff">
+      <h2>documentation</h2>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>default "system" stylesheet</h2>
-      </section>
+    <section data-background="#d1ebff">
+      <h2>self documenting code doesn't cut it</h2>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>CSS lines = 0 <br/>&&<br/> styling inconsistent</h2>
-      </section>
+     <section data-background="#d1ebff">
+      <h2>BUT.... it's a pain and it's first to go out of date :(</h2>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>reset.css</h2>
-        <h2>normalize.css</h2>
-      </section>
+     <section data-background="#d1ebff">
+      <h2>we have a compromise</h2>
+    </section>
 
-      <!---------CSS documentation -------------->
-      <section data-background="#d1ebff">
-        <h2>documentation</h2>
-      </section>
+    <section data-background="#d1ebff">
+      <code>[doc]..[/doc]</code>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>self documenting code doesn't cut it</h2>
-      </section>
-
-       <section data-background="#d1ebff">
-        <h2>BUT.... it's a pain and it's first to go out of date :(</h2>
-      </section>
-
-       <section data-background="#d1ebff">
-        <h2>we have a compromise</h2>
-      </section>
-
-      <section data-background="#d1ebff">
-        <code>[doc]..[/doc]</code>
-      </section>
-
-      <section data-state="rizzo">
-          <pre><code>// [doc] Vertically center content.
-// Use this class on the container and __inner on the element to be centered.
+    <section data-state="rizzo">
+        <pre><code>// [doc] Vertically center content.
+// Use this class on the container and
+// __inner on the element to be centered.
 // [/doc]
 .vertically-centered</code></pre>
-          <img src="img/centered.png" style="width:800px"/>
-      </section>
+        <img src="img/centered.png" style="width:800px"/>
+    </section>
 
-        <!--------- performance ---------
-        <section data-background="#d1ebff">
-          <h2>performance</h2>
-        </section>----->
 
-        <!--------- Style guide - Rizzo -->
+    <!--------- Style guide - Rizzo -->
 
-      <section data-background="#d1ebff">
-        <h2>Style strategy materialized = Rizzo</h2>
-      </section>
+    <section data-background="#d1ebff">
+      <h2>Style strategy materialized = Rizzo</h2>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>open source Styleguide</h2>
-      </section>
+    <section data-background="#d1ebff">
+      <h2>open source Styleguide</h2>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>rizzo.lonelyplanet.com</h2>
-      </section>
+    <section data-background="#d1ebff">
+      <h2><a href="http://rizzo.lonelyplanet.com">rizzo.lonelyplanet.com</a></h2>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>@ianfeather and his team in London</h2>
-      </section>
+    <section data-background="#d1ebff">
+      <h2><a href="https://twitter.com/ianfeather">@ianfeather</a> <br/> and his team in London</h2>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>consistent UI look and feel</h2>
-      </section>
+    <section data-background="#d1ebff">
+      <h2>consistent UI look and feel</h2>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>style resource for designers + third parties</h2>
-      </section>
+    <section data-background="#d1ebff">
+      <h2>style resource for designers + third parties</h2>
+    </section>
 
-      <section data-background="#d1ebff">
-        <h2>live representation of our front end</h2>
-      </section>
-      <!---questions-->
-      <section data-background="#d1ebff">
-      <h2>Questions?</h2>
-      </section>
+    <section data-background="#d1ebff">
+      <h2>live representation of our front end</h2>
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>Summary</h2>
+
+    </section>
+
+    <section data-background="#d1ebff">
+      <h2>Resources</h2>
+      <ul>
+        <li><a href="http://rizzo.lonelyplanet.com/">rizzo.lonelyplanet.com</a></li>
+        <li><a href="https://smacss.com/">smacss.com</a></li>
+        <li><a href="http://engineering.lonelyplanet.com/2014/07/29/css-at-lonely-planet.html">css-at-lonely-planet</a></li>
+        <li><a href="http://engineering.lonelyplanet.com/2014/05/18/a-maintainable-styleguide.html">a-maintainable-styleguide</a></li>
+        <li><a href="http://sass-lang.com/">sass-lang.com</a></li>
+        <li><a href="http://lesscss.org/">esscss.org</a></li>
+        <li><a href="http://learnboost.github.io/stylus/">learnboost.github.io/stylus</a></li>
+        <li><a href="https://github.com/postcss/autoprefixer">github.com/postcss/autoprefixer</a></li>
+        <li><a href="https://bem.info/">bem.info</a></li>
+        <li><a href="http://responsivenews.co.uk/post/18948466399/cutting-the-mustard">cutting-the-mustard</a></li>
+      </ul>
+    </section>
+
+    <!---questions-->
+    <section data-background="#d1ebff">
+    <h2>Questions?</h2>
+    </section>
+
 			</div>
 		</div>
 		<script src="lib/js/head.min.js"></script>
